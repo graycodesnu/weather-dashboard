@@ -23,24 +23,45 @@
     </div>
     <br />
 
-    <!-- First container -->
-    <div class="container-fluid mr-auto row-cols-3" id="containerOne">
+<!-- Header container -->
+    <div class="container-fluid mr-auto" id="containerOne">
       <div class="col-sm">
         <h1>Search for a City:</h1>
       </div>
-
-      <!-- Search bar -->
-      <div class="row mr-auto">
-        <input class="row mr-auto" type="text" id="" placeholder="City" />
-
-        <!-- Search button -->
-        <div class="row mr-auto">
-          <button type="button" class="mr-auto btn btn-primary text-white">Search</button>
-        </div>
-      </div>
     </div>
 
-<!-- Second Container -->
+<!-- Search Container -->
+    <div class="form-container row mr-auto" id="searchBar">
+      <form>
+        <!-- Search input -->
+        <input
+          class="input"
+          type="text"
+          id="searchInput"
+          placeholder="City"
+        />
+        <!-- Search button -->
+        <button
+          type="button"
+          class="mr-auto btn btn-primary text-white"
+          id="searchButton"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+
+<!-- Results container -->
+<div class="results-container">
+    <ul class="results-list" id="currentWeatherResults">
+
+
+
+    </ul>
+
+</div>
+
+    <!-- Current Weather Container -->
     <div class="container mr-auto" id="containerTwo">
       <div class="col">
         <div class="row">
@@ -49,12 +70,12 @@
 
         <!-- City -->
         <div class="row">
-          <p>City & Date</p>
+          <p>**City & Date**</p>
         </div>
 
         <!-- Temp -->
         <div class="row">
-          <p>Temp:</p>
+          <p id="currentTemp">Temp:</p>
         </div>
 
         <!-- Wind -->
@@ -74,10 +95,10 @@
       </div>
     </div>
 
-      <!-- Forecast Header -->
-      <div class="row mr-auto">
-        <h2>5 Day Forecast</h2>
-      </div>
+    <!-- Forecast Header -->
+    <div class="row mr-auto">
+      <h2>5 Day Forecast</h2>
+    </div>
 
     <!-- Forecast Containers -->
     <div class="container row row-cols-5 overflow-hidden mr-auto">
