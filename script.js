@@ -1,14 +1,22 @@
-// var searchInput = 
+// var searchInput =
 // var searchButton =
-// var currentTemp = 
-// var currentWeatherResults = 
+// var currentTemp =
+// var currentWeatherResults =
 
 // Search Event Listeners
-searchButton.addEventListener("click") {
-    var searchInput = document.querySelector('.input');
+var searchButton = document.querySelector("#search-button");
+
+function clickHandler(event) {
+    console.log("Button Clicked");
 }
 
-// Display weather results 
-function weatherResults(){
-    
-}
+searchButton.addEventListener("click", clickHandler);
+
+// function searchButtonDisplay() {
+//   console.log("button clicked");
+// }
+
+//     var searchInput = document.querySelector('.input');
+
+// Display weather results
+function weatherResults() {}
