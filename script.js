@@ -28,7 +28,7 @@ var getWeather = function (cityName) {
     })
 };
 
-// TODO: Create button for preset cities 
+// TODO: Create button for stached cities 
 function weatherEventListener() {
   var stachedCityButton = document.querySelectorAll('.cityName');
   stachedCityButton.forEach(function (btn) {
@@ -43,24 +43,44 @@ function weatherEventListener() {
 var searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', function () {
   cityName = $('#cityInput').value();
+  // Call getWeather for input
   getWeather(cityName);
   console.log(stachedCity);
   stachedCity.push(cityName);
 
   var newCityButton = document.createElement('button');
-  newCityButton.setAttribute('class', 'cityNames');
+  newCityButton.setAttribute('class', 'cityName');
   newCityButton.textContent = cityName;
   $('stachedCity').append(newCityButton);
 
   // Local storage element
   localStorage.setItem('city', JSON.stringify(stachedCity));
   weatherEventListener();
-
 });
 
-
-// TODO: Create function
+// TODO: Create date function for forecast
+let dateFunc = function (time) {
+  let realDate = new Date();
+  realDate.setTeim(time * 1000);
+  let day = realDate.getDate();
+  let month = realDate.getMonth() + 1;
+  let year = realDate.getFullYear();
+  return month + '/' + day + '/' + year;
+}
 
 // TODO: Create container with city, date, temp, wind, humidity, UV index
+// Use getCity for location info
+var getCity = function (lat, lon) {
+  let conditionsAPI = // insert API call
+    // Fetch for conditionsAPI
 
-// TODO: Create 5-day forecast container
+      // Current weather
+
+      // Temp
+
+      // Humidity
+
+      // UV
+}
+
+// TODO: Container for five-day forecast
