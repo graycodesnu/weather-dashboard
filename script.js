@@ -1,22 +1,28 @@
-// var searchInput =
-// var searchButton =
-// var currentTemp =
-// var currentWeatherResults =
+// TODO: location variable, for loop with added city button
+let cityName;
 
-// Search Event Listeners
-var searchButton = document.querySelector("#search-button");
+// City from local storage
+let stachedCity = JSON.parse(localStorage.getItem('city')) || [];
 
-function clickHandler(event) {
-    console.log("Button Clicked");
+for (let = 0; i < stachedCity.length i++) {
+  // Added city button
+ var addCityButton = document.createElement('button');
+ addCityButton.setAttribute('class', 'cityName');
+ addCityButton.textContent = stachedCity[i];
+ console.log(storedCity[i]);
+ $('#presetCities').append(addCityButton);
+ addWeatherEventListener();
 }
 
-searchButton.addEventListener("click", clickHandler);
+// TODO: fetch API 
+  // API key: 6728d2e288b13f55b4c218555ab74c19
 
-// function searchButtonDisplay() {
-//   console.log("button clicked");
-// }
+// TODO: Create button for preset cities 
 
-//     var searchInput = document.querySelector('.input');
+// TODO: Create search button
 
-// Display weather results
-function weatherResults() {}
+// TODO: Create function
+
+// TODO: Create container with city, date, temp, wind, humidity, UV index
+
+// TODO: Create 5-day forecast container
