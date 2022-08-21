@@ -11,7 +11,7 @@ for (let = 0; i < stachedCity.length i++) {
  addCityButton.textContent = stachedCity[i];
  console.log(storedCity[i]);
  $('#presetCities').append(addCityButton);
- addWeatherEventListener();
+ weatherEventListener();
 }
 
 // TODO: fetch API 
@@ -24,12 +24,40 @@ var getWeather = function (cityName) {
     })
     .then(function (data) {
     getCity(data.city.coord.lat, data.city.coord.lon)
-    }
-}
+    console.log(getCity())
+    })
+};
 
 // TODO: Create button for preset cities 
+function weatherEventListener() {
+  var stachedCityButton = document.querySelectorAll('.cityName');
+  stachedCityButton.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      cityName = e.target.innertext;
+      getWeather(cityName);
+    });
+  });
+}
 
 // TODO: Create search button
+var searchButton = document.getElementById('searchButton');
+searchButton.addEventListener('click', function () {
+  cityName = $('#cityInput').value();
+  getWeather(cityName);
+  console.log(stachedCity);
+  stachedCity.push(cityName);
+
+  var newCityButton = document.createElement('button');
+  newCityButton.setAttribute('class', 'cityNames');
+  newCityButton.textContent = cityName;
+  $('stachedCity').append(newCityButton);
+
+  // Local storage element
+  localStorage.setItem('city', JSON.stringify(stachedCity));
+  weatherEventListener();
+
+});
+
 
 // TODO: Create function
 
