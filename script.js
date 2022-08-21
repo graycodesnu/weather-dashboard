@@ -16,6 +16,16 @@ for (let = 0; i < stachedCity.length i++) {
 
 // TODO: fetch API 
   // API key: 6728d2e288b13f55b4c218555ab74c19
+var getWeather = function (cityName) {
+  let api = 'https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=6728d2e288b13f55b4c218555ab74c19"'
+  fetch(api)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+    getCity(data.city.coord.lat, data.city.coord.lon)
+    }
+}
 
 // TODO: Create button for preset cities 
 
