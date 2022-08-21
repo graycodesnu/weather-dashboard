@@ -72,26 +72,35 @@ let dateFunc = function (time) {
 // Use getCity for location info
 var getCity = function (lat, lon) {
   let conditionsAPI = 
-  // insert API call
-    // ? API docs show Kelvin. Not sure how to convert to Farenheit 
+  // insert API call URL
+    // ? API docs show Kelvin. Not sure how to convert to Farenheit, MPH, etc
     // ** API doc FAQ shows input would = 'units = imperial' in url 
+    'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=6728d2e288b13f55b4c218555ab74c19' + '&units=imperial'
 
     // Fetch for conditionsAPI
     fetch(conditionsAPI)
       .then(function (response) {
         return response.json();
       }) .then(function(data) {
-      // Current weather
+      
+        // Current weather
         $('.cityDate').html(cityName + ' (' + dateFunc(data.current.dt) +')' + `<img src="https://openweathermap.org/img/w/${data.current.weather[0].icon}.png" />`);
-      // Temp
-
-      // Humidity
+      
+        // Temp
+        $('.temp').text('Temp: ' + data.current.temp + 'f');
+      
+        // Humidity
         $('.humidity').text('Humidity' + data.current.humidity + 'MPH')
-      // UV
+      
+        // UV
+        $('uvIndex').html('UV Index: ' + data.current.uvi);
+        // ? TODO: UV color indicator??
+
       })
 
 }
 
-// ? TODO: UV color indicator??
+// TODO: five-day forecast call
+
 
 // TODO: Container for five-day forecast
