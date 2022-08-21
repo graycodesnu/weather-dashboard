@@ -71,16 +71,27 @@ let dateFunc = function (time) {
 // TODO: Create container with city, date, temp, wind, humidity, UV index
 // Use getCity for location info
 var getCity = function (lat, lon) {
-  let conditionsAPI = // insert API call
+  let conditionsAPI = 
+  // insert API call
+    // ? API docs show Kelvin. Not sure how to convert to Farenheit 
+    // ** API doc FAQ shows input would = 'units = imperial' in url 
+
     // Fetch for conditionsAPI
-
+    fetch(conditionsAPI)
+      .then(function (response) {
+        return response.json();
+      }) .then(function(data) {
       // Current weather
-
+        $('.cityDate').html(cityName + ' (' + dateFunc(data.current.dt) +')' + `<img src="https://openweathermap.org/img/w/${data.current.weather[0].icon}.png" />`);
       // Temp
 
       // Humidity
-
+        $('.humidity').text('Humidity' + data.current.humidity + 'MPH')
       // UV
+      })
+
 }
+
+// ? TODO: UV color indicator??
 
 // TODO: Container for five-day forecast
