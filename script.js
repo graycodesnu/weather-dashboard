@@ -89,8 +89,11 @@ var getCity = function (lat, lon) {
         // Temp
         $('.temp').text('Temp: ' + data.current.temp + 'f');
       
+        // Wind
+        $('.wind').text('Wind: ' + data.current.wind_speed + 'MPH')
+
         // Humidity
-        $('.humidity').text('Humidity' + data.current.humidity + 'MPH')
+        $('.humidity').text('Humidity' + data.current.humidity + '%')
       
         // UV
         $('uvIndex').html('UV Index: ' + data.current.uvi);
@@ -101,6 +104,23 @@ var getCity = function (lat, lon) {
 }
 
 // TODO: five-day forecast call
+var fiveDayForecast = function (data) {
+  $('.fiveDayForecast').empty()
+  // Five-day for loop
+  for (let i = 1; i < 6; i++) {
+    // Define days and create container + class
+    var days = $("<div class = 'days'></div>")
+    $(days).append(dateFunc(data.daily[i].dt));
+    $(days).append(`<img src="https://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png"/>`);
+    // Temp
+    $(days).append
+    // Wind
+    $(days).append
+    // Humidity
+    $(days).append
+    $(days).append
+  }
 
+}
 
 // TODO: Container for five-day forecast
