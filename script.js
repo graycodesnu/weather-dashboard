@@ -97,30 +97,46 @@ var getCity = function (lat, lon) {
       
         // UV
         $('uvIndex').html('UV Index: ' + data.current.uvi);
-        // ? TODO: UV color indicator??
 
-      })
+        // TODO: UV color indicator
+          // ? if statements?
+        // <= 2
+        if (data.current.uvi <= 2) {
+          console.log('good!')
+        };
+        // > 2, <= 5
+        if (data.current.uvi > 2 || data.current.uvi <= 5) {
+          console.log('warning!')
+        };
+        // > 5
+        if (data.current.uvi > 5) {
+          console.log('dangerous!')
+        };
 
-}
+      });
 
-// TODO: five-day forecast call
+};
+
+// TODO: Create five-day forecast container + call 
 var fiveDayForecast = function (data) {
   $('.fiveDayForecast').empty()
   // Five-day for loop
   for (let i = 1; i < 6; i++) {
+
     // Define days and create container + class
     var days = $("<div class = 'days'></div>")
     $(days).append(dateFunc(data.daily[i].dt));
     $(days).append(`<img src="https://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png"/>`);
+    
     // Temp
-    $(days).append
+    $(days).append('<div><p>Temp: </p>' + data.daily.temp.day + '<p>f</p></div>');
+    
     // Wind
-    $(days).append
+    $(days).append('<div><p>Wind: </p>' + data.daily.wind_speed.day + '<p>MPH</p></div>');
+    
     // Humidity
-    $(days).append
-    $(days).append
-  }
+    $(days).append('<div><p>Humidity: </p>' + data.daily.humidity.day + '<p>%</p></div>');
 
+    $('.fiveDayForecast').append(days)
+  };
 }
-
-// TODO: Container for five-day forecast
