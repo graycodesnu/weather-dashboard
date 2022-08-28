@@ -103,14 +103,17 @@ var getCity = function (lat, lon) {
         // <= 2
         if (data.current.uvi <= 2) {
           console.log('good!')
+          $('.btnColor').attr('class', 'btn btn-success');
         };
         // > 2, <= 5
         if (data.current.uvi > 2 || data.current.uvi <= 5) {
           console.log('warning!')
+          $('.btnColor').attr('class', 'btn btn-warning');
         };
         // > 5
         if (data.current.uvi > 5) {
           console.log('dangerous!')
+          $('.btnColor').attr('class', 'btn btn-danger');
         };
 
       });

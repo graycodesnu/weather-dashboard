@@ -14,47 +14,27 @@
     />
   </head>
 
-  <body>
-    <!-- <header **add class!** > ></header> -->
-    <div class="container-fluid">
-      <div class="row bg-primary text-white text-center">
-        <h1>Weather Dashboard</h1>
+<body>
+  <!-- <header **add class!** > ></header> -->
+  <div class="container-fluid">
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
+
+<!-- Sidebar -->
+  <div class="row">
+    <div class="sidebar-search col-md-4">
+      <div class="mt-2" id="response-container">
+        <label id="searchHeader" for="cityInput">Search for a City:</label>
+        <input type="text" placeholder="Chicago" id="cityInput" name="cityInput">
+        <br>
       </div>
+      <div class="breakClass"></div>
+      <div class="list-group"></div>
+      <div id="presetCities"></div>
     </div>
-    <br />
-
-<!-- Header container -->
-    <div class="container-fluid mr-auto" id="container-one">
-      <div class="col-sm">
-        <h1>Search for a City:</h1>
-      </div>
-    </div>
-
-<!-- Search Container -->
-    <div class="form-container row mr-auto" id="search-bar">
-      <form>
-        <!-- Search input -->
-        <input
-          class="input"
-          type="text"
-          id="search-input"
-          placeholder="City"
-        />
-        <!-- Search button -->
-        <button
-          type="button"
-          class="mr-auto btn btn-primary text-white"
-          id="search-button"
-        >
-          Search
-        </button>
-      </form>
-    </div>
-
-<!-- Results container -->
-<div class="results-container">
-    <ul class="results-list" id="currentWeatherResults">
-
+  
+  </div>
 
 
     </ul>
@@ -149,7 +129,7 @@
       integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
       crossorigin="anonymous"
     ></script>
-  </body>
+</body>
 
   <footer>Created by Grayson Harvey</footer>
 </html>
