@@ -15,7 +15,8 @@
   </head>
 
 <body>
-  <!-- <header **add class!** > ></header> -->
+
+<!-- Header -->
   <div class="container-fluid">
     <header>
       <h1>Weather Dashboard</h1>
@@ -25,111 +26,53 @@
   <div class="row">
     <div class="sidebar-search col-md-4">
       <div class="mt-2" id="response-container">
+        
+        <!-- Search function and button -->
         <label id="searchHeader" for="cityInput">Search for a City:</label>
         <input type="text" placeholder="Chicago" id="cityInput" name="cityInput">
         <br>
       </div>
+      
+      <!-- Preset Cities list -->
       <div class="breakClass"></div>
       <div class="list-group"></div>
       <div id="presetCities"></div>
     </div>
   
+    <!-- Current Weather -->
+    <div class="currentWeatherContainer col-md-8">
+      <div class="row p-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="cityDate info">{CITY HERE} {MM/DD/YYYY}</div>
+            <br>
+            <span class="temp info">{temp info}f</span>
+            <br>
+            <span class="wind info">{wind info} mph</span>
+            <br>
+            <span class="humidity info">{humidity info} %</span>
+            <br>
+            <span class="uv info">{uv info}</span>
+          </div>
+        </div>
+<!-- Forecast Header -->
+        <div class="row forecast">
+          <h3>5 Day Forecast</h3>
+        </div>
+      </div>
+      <!-- Forecast Info -->
+      <div class="fiveDayForecast row"></div>
+    </div>
   </div>
 
+  </div>
 
-    </ul>
+<!-- JS Bootstrap -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+    crossorigin="anonymous">
+  </script>
 
-</div>
-
-    <!-- Current Weather Container -->
-    <div class="container mr-auto" id="containerTwo">
-      <div class="col">
-        <div class="row">
-          <h2>Current Weather</h2>
-        </div>
-
-        <!-- City -->
-        <div class="row">
-          <p>**City & Date**</p>
-        </div>
-
-        <!-- Temp -->
-        <div class="row">
-          <p id="currentTemp">Temp:</p>
-        </div>
-
-        <!-- Wind -->
-        <div class="row">
-          <p>Wind:</p>
-        </div>
-
-        <!-- Humidity -->
-        <div class="row">
-          <p>Humidity:</p>
-        </div>
-
-        <!-- UV Index -->
-        <div class="row">
-          <p>UV Index:</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Forecast Header -->
-    <div class="row mr-auto">
-      <h2>5 Day Forecast</h2>
-    </div>
-
-    <!-- Forecast Containers -->
-    <div class="container row row-cols-5 overflow-hidden mr-auto">
-      <!-- Day 1 -->
-      <div class="col bg-info border">
-        <h4>Day 1</h4>
-        <p>Temp:</p>
-        <p>Wind:</p>
-        <p>Humidity</p>
-      </div>
-
-      <!-- Day 2 -->
-      <div class="col gx-5 bg-info border">
-        <h4>Day 2</h4>
-        <p>Temp:</p>
-        <p>Wind:</p>
-        <p>Humidity</p>
-      </div>
-
-      <!-- Day 3 -->
-      <div class="col gx-5 bg-info border">
-        <h4>Day 3</h4>
-        <p>Temp:</p>
-        <p>Wind:</p>
-        <p>Humidity</p>
-      </div>
-
-      <!-- Day 4 -->
-      <div class="col bg-info border">
-        <h4>Day 4</h4>
-        <p>Temp:</p>
-        <p>Wind:</p>
-        <p>Humidity</p>
-      </div>
-
-      <!-- Day 5 -->
-      <div class="col bg-info border">
-        <h4>Day 5</h4>
-        <p>Temp:</p>
-        <p>Wind:</p>
-        <p>Humidity</p>
-      </div>
-    </div>
-
-    <!-- JS Bootstrap -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-      integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
-      crossorigin="anonymous"
-    ></script>
-</body>
-
-  <footer>Created by Grayson Harvey</footer>
+  </body>
 </html>
