@@ -4,12 +4,12 @@ let cityName;
 // City from local storage
 let stachedCity = JSON.parse(localStorage.getItem('city')) || [];
 
-for (let = 0; i < stachedCity.length i++) {
+for (let i = 0; i < stachedCity.length; i++) {
   // Added city button
  var addCityButton = document.createElement('button');
  addCityButton.setAttribute('class', 'cityName');
  addCityButton.textContent = stachedCity[i];
- console.log(storedCity[i]);
+ console.log(stachedCity[i]);
  $('#presetCities').append(addCityButton);
  weatherEventListener();
 }
@@ -17,7 +17,7 @@ for (let = 0; i < stachedCity.length i++) {
 // TODO: fetch API 
   // API key: 6728d2e288b13f55b4c218555ab74c19
 var getWeather = function (cityName) {
-  let api = 'https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=6728d2e288b13f55b4c218555ab74c19"'
+  let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=6728d2e288b13f55b4c218555ab74c19`;
   fetch(api)
     .then(function (response) {
       return response.json();
@@ -41,27 +41,27 @@ function weatherEventListener() {
 
 // TODO: Create search button
 var searchButton = document.getElementById('searchButton');
-searchButton.addEventListener('click', function () {
-  cityName = $('#cityInput').value();
-  // Call getWeather for input
-  getWeather(cityName);
-  console.log(stachedCity);
-  stachedCity.push(cityName);
+searchButton.addEventListener('click', () => {
+    cityName = $("#cityInput").val();
+    // Call getWeather for input
+    getWeather(cityName);
+    console.log(stachedCity);
+    stachedCity.push(cityName);
 
-  var newCityButton = document.createElement('button');
-  newCityButton.setAttribute('class', 'cityName');
-  newCityButton.textContent = cityName;
-  $('stachedCity').append(newCityButton);
+    var newCityButton = document.createElement('button');
+    newCityButton.setAttribute('class', 'cityName');
+    newCityButton.textContent = cityName;
+    $('stachedCity').append(newCityButton);
 
-  // Local storage element
-  localStorage.setItem('city', JSON.stringify(stachedCity));
-  weatherEventListener();
-});
+    // Local storage element
+    localStorage.setItem('city', JSON.stringify(stachedCity));
+    weatherEventListener();
+  });
 
 // TODO: Create date function for forecast
 let dateFunc = function (time) {
   let realDate = new Date();
-  realDate.setTeim(time * 1000);
+  realDate.setTime(time * 1000);
   let day = realDate.getDate();
   let month = realDate.getMonth() + 1;
   let year = realDate.getFullYear();
@@ -75,7 +75,7 @@ var getCity = function (lat, lon) {
   // insert API call URL
     // ? API docs show Kelvin. Not sure how to convert to Farenheit, MPH, etc
     // ** API doc FAQ shows input would = 'units = imperial' in url 
-    'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=6728d2e288b13f55b4c218555ab74c19' + '&units=imperial'
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=6728d2e288b13f55b4c218555ab74c19&units=imperial`
 
     // Fetch for conditionsAPI
     fetch(conditionsAPI)
@@ -84,16 +84,16 @@ var getCity = function (lat, lon) {
       }) .then(function(data) {
       
         // Current weather
-        $('.cityDate').html(cityName + ' (' + dateFunc(data.current.dt) +')' + `<img src="https://openweathermap.org/img/w/${data.current.weather[0].icon}.png" />`);
+        $('.cityDate').html(cityName + ' (' + dateFunc(data.current.dt) +')' + `<img src='https://openweathermap.org/img/w/${data.current.weather[0].icon}.png' />`);
       
         // Temp
-        $('.temp').text('Temp: ' + data.current.temp + 'f');
+        $('.temp').text('Temp: ' + data.current.temp + ' ℉');
       
         // Wind
-        $('.wind').text('Wind: ' + data.current.wind_speed + 'MPH')
+        $('.wind').text('Wind: ' + data.current.wind_speed + ' MPH')
 
         // Humidity
-        $('.humidity').text('Humidity' + data.current.humidity + '%')
+        $('.humidity').text('Humidity: ' + data.current.humidity + '%')
       
         // UV
         $('uvIndex').html('UV Index: ' + data.current.uvi);

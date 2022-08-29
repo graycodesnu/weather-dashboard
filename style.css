@@ -34,11 +34,11 @@ breakClass {
   width: 300px;
 }
 
-.cityNames {
+.cityName {
   width: 300px;
   margin-bottom: 15px;
   padding: 10px;
-  background-color: darkgray;
+  background-color: #90e0ef;
   border-radius: 10px;
 }
 
