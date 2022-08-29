@@ -2,12 +2,12 @@
 let cityName;
 
 // City from local storage
-let stachedCity = JSON.parse(localStorage.getItem('city')) || [];
+let stachedCity = JSON.parse(localStorage.getItem('City')) || [];
 
 for (let i = 0; i < stachedCity.length; i++) {
   // Added city button
  var addCityButton = document.createElement('button');
- addCityButton.setAttribute('class', 'cityName');
+ addCityButton.setAttribute('class', 'cityNames');
  addCityButton.textContent = stachedCity[i];
  console.log(stachedCity[i]);
  $('#stachedCities').append(addCityButton);
@@ -17,20 +17,24 @@ for (let i = 0; i < stachedCity.length; i++) {
 // TODO: fetch API 
   // API key: 6728d2e288b13f55b4c218555ab74c19
 var getWeather = function (cityName) {
-  let api = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=6728d2e288b13f55b4c218555ab74c19`;
-  fetch(api)
+  let weatherURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=6728d2e288b13f55b4c218555ab74c19`;
+  fetch(weatherURL)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
+      if (data.cod !== '200') {
+        console.log('Error fetching city.');
+        return;
+      }
     getCity(data.city.coord.lat, data.city.coord.lon);
-    // console.log(getCity())
     })
+    .catch(err => console.log(err));
 };
 
 // TODO: Create button for stached cities 
 function weatherEventListener() {
-  var stachedCityButton = document.querySelectorAll('.cityName');
+  var stachedCityButton = document.querySelectorAll('.cityNames');
   stachedCityButton.forEach(function (btn) {
     btn.addEventListener('click', function (e) {
       cityName = e.target.innertext;
@@ -49,12 +53,12 @@ searchButton.addEventListener('click', () => {
     stachedCity.push(cityName);
 
     var newCityButton = document.createElement('button');
-    newCityButton.setAttribute('class', 'cityName');
+    newCityButton.setAttribute('class', 'cityNames');
     newCityButton.textContent = cityName;
-    $('stachedCity').append(newCityButton);
+    $('#stachedCities').append(newCityButton);
 
     // Local storage element
-    localStorage.setItem('city', JSON.stringify(stachedCity));
+    localStorage.setItem('City', JSON.stringify(stachedCity));
     weatherEventListener();
   });
 
@@ -72,9 +76,6 @@ let dateFunc = function (time) {
 // Use getCity for location info
 var getCity = function (lat, lon) {
   let conditionsAPI = 
-  // insert API call URL
-    // ? API docs show Kelvin. Not sure how to convert to Farenheit, MPH, etc
-    // ** API doc FAQ shows input would = 'units = imperial' in url 
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=6728d2e288b13f55b4c218555ab74c19&units=imperial`
 
     // Fetch for conditionsAPI
@@ -96,7 +97,7 @@ var getCity = function (lat, lon) {
         $('.humidity').text('Humidity: ' + data.current.humidity + '%')
       
         // UV
-        $('.uvIndex').html('UV Index: ' + data.current.uvi);
+        $('.uvIndex').html('UV Index: ' + `<span class="btnColor">${data.current.uvi}</span`);
 
         // Forecast Data
         fiveDayForecast(data);
@@ -138,13 +139,13 @@ var fiveDayForecast = function (data) {
     $(days).append(`<img src="https://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png"/>`);
     
     // Temp
-    $(days).append("<p>Temp: " + data.daily[i].temp.days + " ℉</p>");
+    $(days).append(`<p>Temp: ${data.daily[i].temp.day} ℉</p>`);
     
     // Wind
-    $(days).append("<p>Wind: " + data.daily[i].wind_speed.days + " MPH</p>");
+    $(days).append(`<p>Wind: ${data.daily[i].wind_speed} MPH</p>`);
     
     // Humidity
-    $(days).append("<p>Humidity: " + data.daily[i].humidity.days + "%</p>");
+    $(days).append(`<p>Humidity: ${data.daily[i].humidity}%</p>`);
 
     $('.fiveDayForecast').append(days)
   };
