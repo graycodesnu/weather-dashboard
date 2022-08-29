@@ -37,8 +37,7 @@
       
       <!-- Preset Cities list -->
       <div class="breakClass"></div>
-      <div class="list-group"></div>
-      <div id="presetCities"></div>
+      <div class="list-group" id="stachedCities"></div>
     </div>
   
     <!-- Current Weather -->
@@ -46,7 +45,7 @@
       <div class="row p-2">
         <div class="card">
           <div class="card-body">
-            <div class="cityDate info">{CITY HERE} {MM/DD/YYYY}</div>
+            <div class="cityDate info" data-text="City"> {MM/DD/YYYY}</div>
             <br>
             <span class="temp info">Temp:</span>
             <br>
@@ -54,7 +53,7 @@
             <br>
             <span class="humidity info">Humidity: </span>
             <br>
-            <span class="uv info">{uv info}</span>
+            <span class="uvIndex">UV Index: </span>
           </div>
         </div>
 <!-- Forecast Header -->

@@ -27,7 +27,7 @@ header {
   padding: 10px;
 }
 
-breakClass {
+.breakClass {
   border-bottom: 2px solid grey;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -65,9 +65,8 @@ breakClass {
   padding: 15px;
 }
 
-.day {
-  background-color: rgb(54, 54, 92);
-  color: white;
+.days {
+  background-color: #90e0ef;
   padding: 15px;
   margin-right: 20px;
 }

@@ -10,7 +10,7 @@ for (let i = 0; i < stachedCity.length; i++) {
  addCityButton.setAttribute('class', 'cityName');
  addCityButton.textContent = stachedCity[i];
  console.log(stachedCity[i]);
- $('#presetCities').append(addCityButton);
+ $('#stachedCities').append(addCityButton);
  weatherEventListener();
 }
 
@@ -23,8 +23,8 @@ var getWeather = function (cityName) {
       return response.json();
     })
     .then(function (data) {
-    getCity(data.city.coord.lat, data.city.coord.lon)
-    console.log(getCity())
+    getCity(data.city.coord.lat, data.city.coord.lon);
+    // console.log(getCity())
     })
 };
 
@@ -96,23 +96,27 @@ var getCity = function (lat, lon) {
         $('.humidity').text('Humidity: ' + data.current.humidity + '%')
       
         // UV
-        $('uvIndex').html('UV Index: ' + data.current.uvi);
+        $('.uvIndex').html('UV Index: ' + data.current.uvi);
+
+        // Forecast Data
+        fiveDayForecast(data);
 
         // TODO: UV color indicator
-          // ? if statements?
         // <= 2
         if (data.current.uvi <= 2) {
-          console.log('good!')
+          console.log('favorable!')
           $('.btnColor').attr('class', 'btn btn-success');
         };
+
         // > 2, <= 5
-        if (data.current.uvi > 2 || data.current.uvi <= 5) {
-          console.log('warning!')
+        if (data.current.uvi > 2 && data.current.uvi <= 5) {
+          console.log('moderate!')
           $('.btnColor').attr('class', 'btn btn-warning');
         };
+
         // > 5
         if (data.current.uvi > 5) {
-          console.log('dangerous!')
+          console.log('severe!')
           $('.btnColor').attr('class', 'btn btn-danger');
         };
 
@@ -122,23 +126,25 @@ var getCity = function (lat, lon) {
 
 // TODO: Create five-day forecast container + call 
 var fiveDayForecast = function (data) {
-  $('.fiveDayForecast').empty()
+  $('.fiveDayForecast').empty();
   // Five-day for loop
   for (let i = 1; i < 6; i++) {
 
     // Define days and create container + class
-    var days = $("<div class = 'days'></div>")
+    var days = $("<div class = 'days'><div />")
+
+    // Call date
     $(days).append(dateFunc(data.daily[i].dt));
     $(days).append(`<img src="https://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png"/>`);
     
     // Temp
-    $(days).append('<div><p>Temp: </p>' + data.daily.temp.day + '<p>f</p></div>');
+    $(days).append("<p>Temp: " + data.daily[i].temp.days + " ℉</p>");
     
     // Wind
-    $(days).append('<div><p>Wind: </p>' + data.daily.wind_speed.day + '<p>MPH</p></div>');
+    $(days).append("<p>Wind: " + data.daily[i].wind_speed.days + " MPH</p>");
     
     // Humidity
-    $(days).append('<div><p>Humidity: </p>' + data.daily.humidity.day + '<p>%</p></div>');
+    $(days).append("<p>Humidity: " + data.daily[i].humidity.days + "%</p>");
 
     $('.fiveDayForecast').append(days)
   };
