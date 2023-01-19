@@ -132,7 +132,7 @@ var fiveDayForecast = function (data) {
   for (let i = 1; i < 6; i++) {
 
     // Define days and create container + class
-    var days = $("<div class = 'days'><div />")
+    var days = $("<div class = 'days card'><div />")
 
     // Call date
     $(days).append(dateFunc(data.daily[i].dt));

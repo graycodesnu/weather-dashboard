@@ -10,75 +10,83 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
-     <!-- CSS -->
-     <link rel="stylesheet" href="style.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
     <title>Weather Dashboard</title>
   </head>
 
-<body>
+  <body>
+    <!-- Header -->
+    <div class="container-fluid">
+      <header>
+        <h1>Weather Dashboard</h1>
+      </header>
 
-<!-- Header -->
-  <div class="container-fluid">
-    <header>
-      <h1>Weather Dashboard</h1>
-    </header>
+      <!-- Sidebar -->
+      <div class="row">
+        <div class="sidebar-search col-md-4">
+          <div class="mt-2" id="results">
+            <!-- Search function and button -->
+            <label id="searchHeader" for="cityInput">Search for a City:</label>
+            <input
+              type="text"
+              placeholder="Chicago"
+              id="cityInput"
+              name="cityInput"
+            />
+            <br />
+            <button id="searchButton">Search</button>
+          </div>
 
-<!-- Sidebar -->
-  <div class="row">
-    <div class="sidebar-search col-md-4">
-      <div class="mt-2" id="results">
-        
-        <!-- Search function and button -->
-        <label id="searchHeader" for="cityInput">Search for a City:</label>
-        <input type="text" placeholder="Chicago" id="cityInput" name="cityInput">
-        <br>
-        <button id="searchButton">Search</button>
-      </div>
-      
-      <!-- Preset Cities list -->
-      <div class="breakClass"></div>
-      <div class="list-group" id="stachedCities"></div>
-    </div>
-  
-    <!-- Current Weather -->
-    <div class="currentWeatherContainer col-md-8">
-      <div class="row p-2">
-        <div class="card">
-          <div class="card-body">
-            <div class="cityDate info" data-text="City">City</div>
-            <br>
-            <span class="temp info">Temp:</span>
-            <br>
-            <span class="wind info">Wind: </span>
-            <br>
-            <span class="humidity info">Humidity: </span>
-            <br>
-            <span class="uvIndex">UV Index: </span>
+          <!-- Preset Cities list -->
+          <div class="breakClass"></div>
+          <div class="list-group" id="stachedCities"></div>
+        </div>
+
+        <!-- Current Weather -->
+        <div class="currentWeatherContainer col-md-8">
+          <div class="row p-2">
+            <div class="card currentCard">
+              <div class="card-body">
+                <div class="cityDate info" data-text="City">City</div>
+                <br />
+                <span class="temp info">Temp:</span>
+                <br />
+                <span class="wind info">Wind: </span>
+                <br />
+                <span class="humidity info">Humidity: </span>
+                <br />
+                <span class="uvIndex">UV Index: </span>
+              </div>
+            </div>
+            <!-- Forecast Header -->
+            <div class="row forecast">
+              <h3>5 Day Forecast</h3>
+            </div>
+          </div>
+          <!-- Forecast Info -->
+          <div class="fiveDayForecast row">
+            <div class="card forecastCard">
+              <div class="card-body"></div>
+            </div>
           </div>
         </div>
-<!-- Forecast Header -->
-        <div class="row forecast">
-          <h3>5 Day Forecast</h3>
-        </div>
       </div>
-      <!-- Forecast Info -->
-      <div class="fiveDayForecast row"></div>
     </div>
-  </div>
 
-  </div>
-
-<!-- JS Bootstrap -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-    integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
-    crossorigin="anonymous">
-  </script>
-<!-- jquery plugin -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-  </script>
-<!-- script.js -->
-  <script src="script.js"></script>
-
-</body>
+    <!-- JS Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+      integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+      crossorigin="anonymous"
+    ></script>
+    <!-- jquery plugin -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- script.js -->
+    <script src="script.js"></script>
+  </body>
 </html>
