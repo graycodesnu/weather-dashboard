@@ -85,19 +85,19 @@ var getCity = function (lat, lon) {
       }) .then(function(data) {
       
         // Current weather
-        $('.cityDate').html(cityName + ' ' + `<img src='https://openweathermap.org/img/w/${data.current.weather[0].icon}.png' />`);
+        $('.cityDate').html(`<h3>${cityName}</h3>` + `<img src='https://openweathermap.org/img/w/${data.current.weather[0].icon}.png' />`);
       
         // Temp
-        $('.temp').text('Temp: ' + data.current.temp + ' ℉');
-      
+        $('.temp').text(data.current.temp + ' ℉')
+
         // Wind
-        $('.wind').text('Wind: ' + data.current.wind_speed + ' MPH')
+        $('.wind').text(data.current.wind_speed + ' MPH')
 
         // Humidity
-        $('.humidity').text('Humidity: ' + data.current.humidity + '%')
+        $('.humidity').text(data.current.humidity + '%')
       
         // UV
-        $('.uvIndex').html('UV Index: ' + `<span class="btnColor">${data.current.uvi}</span`);
+        $('.uvIndex').html(`<span class="btnColor">${data.current.uvi}</span`);
 
         // Forecast Data
         fiveDayForecast(data);

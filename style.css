@@ -9,12 +9,8 @@ header {
 }
 
 body {
-  background-color: #14213D;
+  background-color: #14213d;
   color: #ffff;
-}
-
-.sidebar {
-  width: 25%;
 }
 
 #searchButton {
@@ -29,7 +25,7 @@ body {
 #cityInput {
   width: 300px;
   height: 50px;
-  border-radius: 5px ;
+  border-radius: 5px;
   padding: 10px;
 }
 
@@ -63,25 +59,51 @@ body {
 .card {
   padding: 10px;
   border-color: #247ba0;
-  background-color: #14213D;
+  background-color: #14213d;
   color: #ffff;
   margin-bottom: 15px;
   padding: 10px;
   box-shadow: 0 4px 8px 0 #247ba0;
 }
 
-.currentCard{
+.currentCard {
   width: 80%;
 }
 
+.currentConditionsBreak {
+  border-bottom: 1px solid rgb(255, 255, 255);
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 180px;
+}
 .forecastCard {
   width: 18%;
   padding: 10px;
 }
 
 .info {
-  margin-top: 7px;
-  display: block;
+  padding-top: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-indent: 1em;
+}
+
+.cityInfo {
+  padding-top: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.infoText {
+  font-weight: bold;
+}
+
+.infoResult {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .cityDate {
@@ -99,7 +121,7 @@ body {
   width: 17%;
   transition: 0.3s;
 }
- 
+
 .card:hover {
   box-shadow: 0 8px 16px 0 #982649;
 }
