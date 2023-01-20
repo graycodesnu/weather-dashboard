@@ -1,4 +1,4 @@
-// TODO: location variable, for loop with added city button
+// location variable, for loop with added city button
 let cityName;
 
 // City from local storage
@@ -14,7 +14,7 @@ for (let i = 0; i < stachedCity.length; i++) {
  weatherEventListener();
 }
 
-// TODO: fetch API 
+// fetch API 
   // API key: 6728d2e288b13f55b4c218555ab74c19
 var getWeather = function (cityName) {
   let weatherURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=6728d2e288b13f55b4c218555ab74c19`;
@@ -32,7 +32,7 @@ var getWeather = function (cityName) {
     .catch(err => console.log(err));
 };
 
-// TODO: Create button for stached cities 
+// Create button for stached cities 
 function weatherEventListener() {
   var stachedCityButton = document.querySelectorAll('.cityNames');
   stachedCityButton.forEach(function (btn) {
@@ -43,7 +43,7 @@ function weatherEventListener() {
   });
 }
 
-// TODO: Create search button
+// Create search button
 var searchButton = document.getElementById('searchButton');
 searchButton.addEventListener('click', () => {
     cityName = $("#cityInput").val();
@@ -62,7 +62,7 @@ searchButton.addEventListener('click', () => {
     weatherEventListener();
   });
 
-// TODO: Create date function for forecast
+// Create date function for forecast
 let dateFunc = function (time) {
   let realDate = new Date();
   realDate.setTime(time * 1000);
@@ -72,7 +72,7 @@ let dateFunc = function (time) {
   return month + '/' + day + '/' + year;
 }
 
-// TODO: Create container with city, date, temp, wind, humidity, UV index
+// Create container with city, date, temp, wind, humidity, UV index
 // Use getCity for location info
 var getCity = function (lat, lon) {
   let conditionsAPI = 
@@ -85,7 +85,7 @@ var getCity = function (lat, lon) {
       }) .then(function(data) {
       
         // Current weather
-        $('.cityDate').html(cityName + ' (' + dateFunc(data.current.dt) +')' + `<img src='https://openweathermap.org/img/w/${data.current.weather[0].icon}.png' />`);
+        $('.cityDate').html(cityName + ' ' + `<img src='https://openweathermap.org/img/w/${data.current.weather[0].icon}.png' />`);
       
         // Temp
         $('.temp').text('Temp: ' + data.current.temp + ' ℉');
@@ -102,7 +102,7 @@ var getCity = function (lat, lon) {
         // Forecast Data
         fiveDayForecast(data);
 
-        // TODO: UV color indicator
+        // UV color indicator
         // <= 2
         if (data.current.uvi <= 2) {
           console.log('favorable!')
@@ -125,7 +125,7 @@ var getCity = function (lat, lon) {
 
 };
 
-// TODO: Create five-day forecast container + call 
+// Create five-day forecast container + call 
 var fiveDayForecast = function (data) {
   $('.fiveDayForecast').empty();
   // Five-day for loop
