@@ -142,10 +142,10 @@ var fiveDayForecast = function (data) {
     $(days).append(`<span class="forecastFormat"> <span class="infoText">Temp: </span> <p> ${data.daily[i].temp.day} ℉</p>`);
     
     // Wind
-    $(days).append(`<p>Wind: ${data.daily[i].wind_speed} MPH</p>`);
+    $(days).append(`<span class="forecastFormat"><span class="infoText">Wind: </span><p>${data.daily[i].wind_speed} MPH</p></span>`);
     
     // Humidity
-    $(days).append(`<p>Humidity: ${data.daily[i].humidity}%</p>`);
+    $(days).append(`<span class="forecastFormat"><span class="infoText">Humidity: </span><p>${data.daily[i].humidity}%</p></span>`);
 
     $('.fiveDayForecast').append(days)
   };
