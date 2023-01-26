@@ -139,7 +139,7 @@ var fiveDayForecast = function (data) {
     $(days).append(`<img src="https://openweathermap.org/img/w/${data.daily[i].weather[0].icon}.png"/>`);
     
     // Temp
-    $(days).append(`<p>Temp: ${data.daily[i].temp.day} ℉</p>`);
+    $(days).append(`<span class="forecastFormat"> <span class="infoText">Temp: </span> <p> ${data.daily[i].temp.day} ℉</p>`);
     
     // Wind
     $(days).append(`<p>Wind: ${data.daily[i].wind_speed} MPH</p>`);
