@@ -2,6 +2,7 @@
 
 ## Introduction
 This project is a result of our bootcamp's week 6 homework assignment. Students were expected to create a weather generator that would store search results to local storage and display current and five-day forecast conditions. The project can be found [here](https://graycodesnu.github.io/weather-dashboard-week06/).
+
 ![screenshot](./assets/landing-2.0.png)
 
 ## Goals 
