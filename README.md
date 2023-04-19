@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project is a result of our bootcamp's week 6 homework assignment. Students were expected to create a weather generator that would store search results to local storage and display current and five-day forecast conditions. The project can be found [here](https://graycodesnu.github.io/weather-dashboard/).
+A dynamic weather dashboard that enables users to store search results in local storage while displaying current weather conditions and a five-day forecast. The project can be accessed via [this link](https://graycodesnu.github.io/weather-dashboard/).
 
 ![screenshot](./assets/landing-2.0.png)
 
@@ -12,33 +12,23 @@ This project is a result of our bootcamp's week 6 homework assignment. Students 
   - [Table of Contents](#table-of-contents)
   - [Goals](#goals)
   - [Results](#results)
-  - [Credits](#credits)
   - [License](#license)
   - [Badges](#badges)
   - [Features](#features)
 
 ## Goals
 
-The goal of this assignment was to create a weather dashboard that would meet the below criteria:
-
-+ When a user searches for a city, they are presented with current and future conditions for that city, which is stored in local storage
-+ Display the UV index and indicate the current conditions with color
-+ Provide a five-day forecast for the city the user inputs
-+ A user can return to their previous searches by clicking on the city stached in local storage, which will once again display the conditions for that city 
+The objective of this project was to develop a weather dashboard that fulfills the following requirements:
++ Upon searching for a city, the user should be able to view its present and upcoming weather conditions, which must be stored in local storage.
++ The dashboard must display the UV index and indicate the current conditions using color codes.
++ A five-day forecast for the specified city must be provided.
++ The user should be able to view their prior searches by clicking on the city stored in local storage, allowing them to access the weather conditions for that city once again.
 
 ## Results
 
-After starting over once, I was able to leverage the foundation I've developed since Week 6 of the course. I ran into quite a few bugs because I originally had several variables and classes with very similar names, but once I was able to sort that out, most features of the app worked well. 
+After restarting this project once, I utilized the skills and knowledge I had acquired since Week 6 of the course. However, I encountered several bugs initially due to using similar names for multiple variables and classes. Once I resolved this issue, the majority of the application's features functioned well.
 
-The main thing I struggled with while building this app is getting the stached cities in local storage to re-display the results. Otherwise, most of the bugs I had were a result of my careless naming method and not reading the API docs as thoroughly as I should have the first time. Lessons learned! 
-
-## Credits
-
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+My primary challenge during the app development process was to retrieve the stored cities from local storage and display the relevant results. Additionally, many of the bugs were a result of my haphazard naming scheme and inadequate examination of the API documentation. This experience taught me the importance of being meticulous in my approach and thoroughly reviewing documentation before beginning any project.
 
 ## License
 
